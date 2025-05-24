@@ -10,7 +10,7 @@ const About = () => (
     <Avatar
       alt="Darragh Kennedy"
       src="Profilepic.jpeg"
-      sx={{ width: 120, height: 120, mx: 'auto', mb: 2, boxShadow: 2 }}
+      sx={{ width: 120, height: 120, mx: 'auto', mb: 2, boxShadow: 2 }}//ss
     />
     <Typography variant="h4" fontWeight={700} gutterBottom>
       About Me
