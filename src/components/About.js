@@ -7,7 +7,6 @@ import CodeIcon from '@mui/icons-material/Code';
 import StorageIcon from '@mui/icons-material/Storage';
 import CloudIcon from '@mui/icons-material/Cloud';
 import SchoolIcon from '@mui/icons-material/School';
-import profilePic from '../assets/Profilepic.jpeg';
 
 const skills = [
   { name: 'JavaScript', icon: <CodeIcon />, category: 'Frontend' },
@@ -52,7 +51,7 @@ const About = () => {
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 4, gap: 2 }}>
           <Avatar
             alt="Darragh Kennedy"
-            src={profilePic}
+            src={process.env.PUBLIC_URL + '/images/Profilepic.jpeg'}
             sx={{
               width: 120,
               height: 120,

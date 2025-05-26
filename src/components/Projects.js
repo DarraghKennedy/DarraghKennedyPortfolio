@@ -1,11 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Grid, Card, CardMedia, CardContent, Typography, Button } from '@mui/material';
-import educoachPic from '../assets/educoachPic.png';
 
 const projects = [
   {
     title: 'EduCoach Tutoring Platform',
-    image: educoachPic,
+    image: process.env.PUBLIC_URL + '/images/educoachPic.png',
     description: 'A tutoring platform I created for a college project.\nIt connects students with tutors, manages sessions, and provides a user-friendly interface for learning.',
     link: 'http://educoach.infinityfreeapp.com/pages/home.php'
   }

@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Typography, Avatar, Stack } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import TypingText from './TypingText';
-import profilePic from '../assets/Profilepic.jpeg';
 
 const Hero = () => {
   const theme = useTheme();
@@ -50,7 +49,7 @@ const Hero = () => {
       <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="center" sx={{ position: 'relative', zIndex: 1 }}>
         <Avatar
           alt="Darragh Kennedy"
-          src={profilePic}
+          src={process.env.PUBLIC_URL + '/images/Profilepic.jpeg'}
           sx={{
             width: 120,
             height: 120,

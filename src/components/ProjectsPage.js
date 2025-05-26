@@ -22,13 +22,12 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import CodeIcon from '@mui/icons-material/Code';
 import StorageIcon from '@mui/icons-material/Storage';
 import BrushIcon from '@mui/icons-material/Brush';
-import educoachPic from '../assets/educoachPic.png';
 
 const projects = [
   {
     title: 'EduCoach Tutoring Platform',
-    image: educoachPic,
-    description: 'A comprehensive tutoring platform that connects students with tutors, manages sessions, and provides a user-friendly interface for learning.',
+    image: process.env.PUBLIC_URL + '/images/educoachPic.png',
+    description: 'A tutoring platform I created for a college project.\nIt connects students with tutors, manages sessions, and provides a user-friendly interface for learning.',
     longDescription: `EduCoach is a full-stack web application built with PHP, MySQL, and JavaScript. 
     Features include:
     • User authentication and role-based access control
