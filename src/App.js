@@ -8,7 +8,9 @@ import Footer from './components/Footer';
 import Resume from './components/Resume';
 import About from './components/About';
 import Blog from './components/Blog';
-import ContactPage from './components/ContactPage';
+import BlogPost from './components/BlogPost';
+import Contact from './components/Contact';
+import ProjectsPage from './components/ProjectsPage';
 import getTheme from './theme';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
@@ -46,8 +48,10 @@ function App() {
                 } />
                 <Route path="/about" element={<About />} />
                 <Route path="/blog" element={<Blog />} />
-                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/blog/:id" element={<BlogPost />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/resume" element={<Resume />} />
+                <Route path="/projects" element={<ProjectsPage />} />
               </Routes>
             </Container>
             <Box mt={8}>

@@ -1,22 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 const TypingText = ({ text = '', speed = 40, ...props }) => {
-  const safeText = typeof text === 'string' ? text : '';
   const [displayed, setDisplayed] = useState('');
+  const intervalRef = useRef(null);
+  const textRef = useRef(text);
 
   useEffect(() => {
+    // Update the text ref when text prop changes
+    textRef.current = text;
+    
+    // Reset the displayed text
     setDisplayed('');
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i < safeText.length) {
-        setDisplayed((prev) => prev + safeText[i]);
-        i++;
+    
+    // Clear any existing interval
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+
+    let currentIndex = 0;
+    
+    const typeNextChar = () => {
+      if (currentIndex < textRef.current.length) {
+        setDisplayed(textRef.current.substring(0, currentIndex + 1));
+        currentIndex++;
       } else {
-        clearInterval(interval);
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
+        }
       }
-    }, speed);
-    return () => clearInterval(interval);
-  }, [safeText, speed]);
+    };
+
+    // Start the typing animation
+    intervalRef.current = setInterval(typeNextChar, speed);
+
+    // Cleanup function
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [text, speed]);
 
   return <span {...props}>{displayed}</span>;
 };

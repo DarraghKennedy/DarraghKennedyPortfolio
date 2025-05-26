@@ -8,21 +8,6 @@ const projects = [
     image: educoachPic,
     description: 'A tutoring platform I created for a college project.\nIt connects students with tutors, manages sessions, and provides a user-friendly interface for learning.',
     link: 'http://educoach.infinityfreeapp.com/pages/home.php'
-  },
-  {
-    title: 'Chair',
-    image: 'https://images.unsplash.com/photo-1640938776314-4d303f8a1380?auto=format&fit=crop&w=400&q=80',
-    description: 'A modern chair design project.'
-  },
-  {
-    title: 'Ut enim ad minim veniam',
-    image: 'https://images.unsplash.com/photo-1641259041823-e09935369105?auto=format&fit=crop&w=400&q=80',
-    description: 'A creative project with a focus on minimalism.'
-  },
-  {
-    title: 'Project 3',
-    image: 'https://via.placeholder.com/400x300',
-    description: 'A sample project description.'
   }
 ];
 

@@ -1,14 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Box, Typography, TextField, Button, Stack, IconButton, Alert } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef();
   const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = (e) => {
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    emailjs.init("ZPMfzc4D5J4E1C_yJ");
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setLoading(true);
+    setError(false);
+    setSubmitted(false);
+
+    try {
+      // Send message to your email (using template_n6h486o)
+      const messageToYou = {
+        to_email: 'dkennedy121314@gmail.com',
+        name: form.current.from_name.value,
+        time: new Date().toLocaleString(),
+        message: form.current.message.value
+      };
+
+      // Send auto-reply to the sender (using template_8kg364u)
+      const autoReply = {
+        to_email: form.current.reply_to.value,
+        user_name: form.current.from_name.value,
+        user_email: form.current.reply_to.value,
+        user_message: form.current.message.value
+      };
+
+      // Send both emails
+      const [messageResult, autoReplyResult] = await Promise.all([
+        emailjs.send(
+          'service_3cdjs9q',
+          'template_n6h486o',
+          messageToYou,
+          'ZPMfzc4D5J4E1C_yJ'
+        ),
+        emailjs.send(
+          'service_3cdjs9q',
+          'template_8kg364u',
+          autoReply,
+          'ZPMfzc4D5J4E1C_yJ'
+        )
+      ]);
+
+      if (messageResult.text === 'OK' && autoReplyResult.text === 'OK') {
+        setSubmitted(true);
+        form.current.reset();
+      } else {
+        setError(true);
+      }
+    } catch (err) {
+      setError(true);
+    } finally {
+      setLoading(false);
+      setTimeout(() => {
+        setSubmitted(false);
+        setError(false);
+      }, 5000);
+    }
   };
 
   return (
@@ -18,6 +77,7 @@ const Contact = () => {
           Contact Me
         </Typography>
         <Box
+          ref={form}
           component="form"
           onSubmit={handleSubmit}
           sx={{
@@ -30,7 +90,7 @@ const Contact = () => {
         >
           <TextField
             label="Name"
-            name="name"
+            name="from_name"
             required
             fullWidth
             sx={{
@@ -42,7 +102,7 @@ const Contact = () => {
           />
           <TextField
             label="Email"
-            name="email"
+            name="reply_to"
             type="email"
             required
             fullWidth
@@ -67,10 +127,26 @@ const Contact = () => {
               },
             }}
           />
-          <Button variant="contained" color="primary" size="large" sx={{ mt: 2 }} type="submit">
-            Send Message
+          <Button 
+            variant="contained" 
+            color="primary" 
+            size="large" 
+            sx={{ mt: 2 }} 
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? 'Sending...' : 'Send Message'}
           </Button>
-          {submitted && <Alert severity="success">Message sent! (This is a demo.)</Alert>}
+          {submitted && (
+            <Alert severity="success" sx={{ mt: 2 }}>
+              Thank you for your message! I'll get back to you soon.
+            </Alert>
+          )}
+          {error && (
+            <Alert severity="error" sx={{ mt: 2 }}>
+              Sorry, there was an error sending your message. Please try again.
+            </Alert>
+          )}
         </Box>
         <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 4 }}>
           <IconButton

@@ -29,7 +29,7 @@ const Navbar = () => {
         </Typography>
         <Box>
           <Button color="inherit" component={RouterLink} to="/about">About</Button>
-          <Button color="inherit" href="#projects">Projects</Button>
+          <Button color="inherit" component={RouterLink} to="/projects">Projects</Button>
           <Button color="inherit" component={RouterLink} to="/blog">Blog</Button>
           <Button color="inherit" component={RouterLink} to="/contact">Contact</Button>
           <Button color="inherit" component={RouterLink} to="/resume">Resume</Button>

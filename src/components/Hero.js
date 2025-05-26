@@ -78,7 +78,7 @@ const Hero = () => {
             Computer Systems Student
           </Typography>
           <Typography variant="body1" color="inherit">
-            <TypingText text="I have a passion for programming and computer systems. I love building useful web applications and learning new technologies." />
+            <TypingText text="I have a passion for programming and computer systems. I love building useful web applications and learning new technologies." speed={50} />
           </Typography>
         </Box>
       </Stack>
