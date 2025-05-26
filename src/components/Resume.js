@@ -9,7 +9,7 @@ const Resume = () => (
     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
       <iframe
         title="Darragh Kennedy Resume"
-        src="/DarraghKennedyResume.pdf"
+        src={process.env.PUBLIC_URL + '/DarraghKennedyResume.pdf'}
         width="100%"
         height="800px"
         style={{ border: 0, maxWidth: '900px' }}
