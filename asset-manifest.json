@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/portfolio-react/static/css/main.5db58ac0.css",
-    "main.js": "/portfolio-react/static/js/main.c689bfdb.js",
-    "static/js/453.5721f686.chunk.js": "/portfolio-react/static/js/453.5721f686.chunk.js",
-    "static/media/educoachPic.png": "/portfolio-react/static/media/educoachPic.3cfff6f73fb2688f3fe4.png",
-    "static/media/Profilepic.jpeg": "/portfolio-react/static/media/Profilepic.166fccef99cee11bbd3e.jpeg",
-    "service-worker.js": "/portfolio-react/service-worker.js",
-    "index.html": "/portfolio-react/index.html",
-    "main.5db58ac0.css.map": "/portfolio-react/static/css/main.5db58ac0.css.map",
-    "main.c689bfdb.js.map": "/portfolio-react/static/js/main.c689bfdb.js.map",
-    "453.5721f686.chunk.js.map": "/portfolio-react/static/js/453.5721f686.chunk.js.map"
+    "main.css": "/DarraghKennedyPortfolio/static/css/main.5db58ac0.css",
+    "main.js": "/DarraghKennedyPortfolio/static/js/main.2cae5b59.js",
+    "static/js/453.5721f686.chunk.js": "/DarraghKennedyPortfolio/static/js/453.5721f686.chunk.js",
+    "static/media/educoachPic.png": "/DarraghKennedyPortfolio/static/media/educoachPic.3cfff6f73fb2688f3fe4.png",
+    "static/media/Profilepic.jpeg": "/DarraghKennedyPortfolio/static/media/Profilepic.166fccef99cee11bbd3e.jpeg",
+    "service-worker.js": "/DarraghKennedyPortfolio/service-worker.js",
+    "index.html": "/DarraghKennedyPortfolio/index.html",
+    "main.5db58ac0.css.map": "/DarraghKennedyPortfolio/static/css/main.5db58ac0.css.map",
+    "main.2cae5b59.js.map": "/DarraghKennedyPortfolio/static/js/main.2cae5b59.js.map",
+    "453.5721f686.chunk.js.map": "/DarraghKennedyPortfolio/static/js/453.5721f686.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5db58ac0.css",
-    "static/js/main.c689bfdb.js"
+    "static/js/main.2cae5b59.js"
   ]
 }
